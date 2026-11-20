@@ -11,6 +11,7 @@
     "gui.slide_show.flip": "水平翻转",
     "gui.slide_show.rotate": "顺时针旋转",
     "gui.slide_show.single_double_sided": "切换单面/双面",
+    "gui.slide_show.light_mode": "切换全亮/遮光",
 
     "gui.slide_show.section.image": "图片属性",
     "gui.slide_show.section.offset": "幻灯片平移",

@@ -56,7 +56,6 @@ public final class ProjectorBlock extends Block implements EntityBlockMapper {
 	public ProjectorBlock() {
 		super(Block.Properties.of(Material.METAL)
 				.strength(20F)
-				.lightLevel(state -> 15) // TODO Configurable
 				.noCollission());
 		registerDefaultState(defaultBlockState()
 				.setValue(BASE, Direction.DOWN)

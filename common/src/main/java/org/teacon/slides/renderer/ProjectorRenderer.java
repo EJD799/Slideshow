@@ -70,7 +70,7 @@ public class ProjectorRenderer extends BlockEntityRendererMapper<ProjectorBlockE
 
 			final boolean flipped = tile.getBlockState().getValue(ProjectorBlock.ROTATION).isFlipped();
 
-			slide.render(source, last.pose(), last.normal(), tile.mWidth, tile.mHeight, color, packedLight,
+			slide.render(source, last.pose(), last.normal(), tile.mWidth, tile.mHeight, color, tile.mUseFullLight ? 0xF000F0 : packedLight,
 					OverlayTexture.NO_OVERLAY, flipped || tile.mDoubleSided, !flipped || tile.mDoubleSided,
 					SlideState.getAnimationTick(), partialTick);
 

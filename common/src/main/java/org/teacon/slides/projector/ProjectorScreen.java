@@ -47,6 +47,7 @@ public final class ProjectorScreen extends ScreenMapper {
 			FLIP_TEXT = Text.translatable("gui.slide_show.flip"),
 			ROTATE_TEXT = Text.translatable("gui.slide_show.rotate"),
 			SINGLE_DOUBLE_SIDED_TEXT = Text.translatable("gui.slide_show.single_double_sided");
+			LIGHT_MODE_TEXT = Text.translatable("gui.slide_show.light_mode")
 
 	private EditBox mURLInput;
 	private EditBox mColorInput;
@@ -58,6 +59,9 @@ public final class ProjectorScreen extends ScreenMapper {
 
 	private ImageButton mSwitchSingleSided;
 	private ImageButton mSwitchDoubleSided;
+
+	private ImageButton mSwitchFullLight;
+	private ImageButton mSwitchBlockLight;
 
 	private boolean mDoubleSided;
 	private int mImageColor = ~0;
@@ -239,6 +243,23 @@ public final class ProjectorScreen extends ScreenMapper {
 		mSwitchSingleSided.visible = mDoubleSided;
 		addDrawableChild(mSwitchSingleSided);
 		addDrawableChild(mSwitchDoubleSided);
+
+		// full light / block light
+		mSwitchFullLight = new ImageButton(leftPos + 9, topPos + 193, 18, 19, 179, 73, 0, GUI_TEXTURE, button -> {
+			mUseFullLight = true;
+			mSwitchBlockLight.visible = true;
+			mSwitchFullLight.visible = false;
+		});
+		mSwitchBlockLight = new ImageButton(leftPos + 9, topPos + 193, 18, 19, 179, 93, 0, GUI_TEXTURE, button -> {
+			mUseFullLight = false;
+			mSwitchFullLight.visible = true;
+			mSwitchBlockLight.visible = false;
+		});
+		mUseFullLight = mEntity.mUseFullLight;
+		mSwitchFullLight.visible = !mUseFullLight;
+		mSwitchBlockLight.visible = mUseFullLight;
+		addDrawableChild(mSwitchFullLight);
+		addDrawableChild(mSwitchBlockLight);
 	}
 
 	private void updateRotation(ProjectorBlock.InternalRotation newRotation) {
