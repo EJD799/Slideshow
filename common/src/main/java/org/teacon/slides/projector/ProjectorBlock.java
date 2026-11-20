@@ -27,6 +27,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.level.block.RenderShape;
 import org.teacon.slides.Registry;
 import org.teacon.slides.Slideshow;
 import org.teacon.slides.mappings.BlockEntityMapper;
@@ -75,6 +76,11 @@ public final class ProjectorBlock extends Block implements EntityBlockMapper {
 			default:
 				throw new AssertionError();
 		}
+	}
+
+	@Override
+	public RenderShape getRenderShape(BlockState state) {
+		return RenderShape.INVISIBLE;
 	}
 
 	@Override

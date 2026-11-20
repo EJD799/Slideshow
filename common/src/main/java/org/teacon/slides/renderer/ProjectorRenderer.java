@@ -9,9 +9,14 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.util.RandomSource;
 import org.teacon.slides.mappings.BlockEntityRendererMapper;
 import org.teacon.slides.projector.ProjectorBlock;
 import org.teacon.slides.projector.ProjectorBlockEntity;
+import org.teacon.slides.Registries;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -25,6 +30,24 @@ public class ProjectorRenderer extends BlockEntityRendererMapper<ProjectorBlockE
 	@Override
 	public void render(ProjectorBlockEntity tile, float partialTick, PoseStack pStack,
 					   MultiBufferSource source, int packedLight, int packedOverlay) {
+
+		final Minecraft minecraft = Minecraft.getInstance();
+
+		final boolean holdingProjector = minecraft.player != null &&
+				(minecraft.player.getMainHandItem().is(Registries.PROJECTOR.get()) ||
+				minecraft.player.getOffhandItem().is(Registries.PROJECTOR.get()));
+
+		if (holdingProjector) {
+			final BlockRenderDispatcher blockRenderer = minecraft.getBlockRenderer();
+
+			blockRenderer.renderSingleBlock(
+					tile.getBlockState(),
+					pStack,
+					source,
+					packedLight,
+					packedOverlay
+			);
+		}
 
 		// render bounding box for DEBUG
 //        renderBoundingBox(pStack, tile);
