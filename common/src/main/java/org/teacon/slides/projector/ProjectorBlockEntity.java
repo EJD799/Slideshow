@@ -37,7 +37,7 @@ public final class ProjectorBlockEntity extends BlockEntityClientSerializableMap
 		compoundTag.putFloat("OffsetY", mOffsetY);
 		compoundTag.putFloat("OffsetZ", mOffsetZ);
 		compoundTag.putBoolean("DoubleSided", mDoubleSided);
-		compoundTag.putBoolean("UseFullLight", mUseFullLight)
+		compoundTag.putBoolean("UseFullLight", mUseFullLight);
 	}
 
 	@Override
