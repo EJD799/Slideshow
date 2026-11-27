@@ -46,8 +46,8 @@ public final class ProjectorScreen extends ScreenMapper {
 			OFFSET_Z_TEXT = Text.translatable("gui.slide_show.offset_z"),
 			FLIP_TEXT = Text.translatable("gui.slide_show.flip"),
 			ROTATE_TEXT = Text.translatable("gui.slide_show.rotate"),
-			SINGLE_DOUBLE_SIDED_TEXT = Text.translatable("gui.slide_show.single_double_sided");
-			LIGHT_MODE_TEXT = Text.translatable("gui.slide_show.light_mode")
+			SINGLE_DOUBLE_SIDED_TEXT = Text.translatable("gui.slide_show.single_double_sided"),
+			LIGHT_MODE_TEXT = Text.translatable("gui.slide_show.light_mode");
 
 	private EditBox mURLInput;
 	private EditBox mColorInput;
